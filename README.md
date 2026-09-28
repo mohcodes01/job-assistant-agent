@@ -1,301 +1,286 @@
 # Job Assistant Agent
 
-An AI-powered job search and career assistant that helps candidates discover relevant opportunities, apply more efficiently, keep track of their applications, and prepare for interviews.
+An AI-powered job search and career assistance platform designed to help candidates discover relevant opportunities, understand job requirements, tailor their applications, and prepare for interviews.
 
 ## 🚀 Overview
 
-**Job Assistant Agent** is designed to support the complete job-search lifecycle — from finding a suitable position to preparing for the interview.
+**Job Assistant Agent** brings the major stages of the job-search process into one platform.
 
-Instead of treating job searching, applications, tracking, and interview preparation as separate tasks, the agent brings them together into one workflow.
+Instead of manually switching between job boards, resumes, notes, and interview preparation tools, the system aims to provide an intelligent workflow for:
 
-### Core Capabilities
+* Finding relevant job opportunities
+* Collecting and organizing job listings
+* Processing and understanding resumes
+* Matching candidates with suitable positions
+* Identifying skill gaps and job requirements
+* Preparing for interviews
+* Managing applications
+* Using AI agents to automate repetitive career tasks
 
-* 🔎 **Job Search** — Find and filter relevant job opportunities
-* 📝 **Job Applications** — Assist with personalized applications
-* 📊 **Application Tracking** — Track applications, statuses, deadlines, and follow-ups
-* 🎤 **Interview Support** — Prepare for interviews with role-specific research, questions, and practice
+## ✨ Planned Features
 
----
+### 🔐 Authentication
 
-## ✨ Features
+* User registration and login
+* Session management
+* Authentication and authorization
+* Secure user access
 
-### 🔎 Job Search
+### 👤 User Profile
 
-The agent helps users discover jobs based on their profile, skills, experience, preferences, and target roles.
+* Candidate profile management
+* Skills and experience
+* Career preferences
+* Target roles and locations
 
-**Capabilities:**
+### 🔎 Job Discovery
 
-* Search for relevant job opportunities
-* Filter by:
+* Job search
+* Search filters
+* Job recommendations
+* Job details and requirements
 
-  * Job title
-  * Skills
-  * Location
-  * Remote / hybrid / onsite
-  * Employment type
-  * Salary range
-  * Experience level
-  * Company
-* Analyze job descriptions
-* Identify required and preferred qualifications
-* Compare job requirements with the candidate's profile
-* Save interesting opportunities
+### 📥 Job Ingestion
 
----
+* Job data collection
+* External job source integration
+* Job normalization
+* Duplicate detection
+* Structured job data
 
-### 📝 Job Application
+### 📄 Resume Processing
 
-The agent assists with preparing and managing job applications.
+* Resume upload
+* Resume parsing
+* Skill extraction
+* Experience extraction
+* Structured candidate data
 
-**Capabilities:**
+### 🎯 Job Matching
 
-* Analyze a job description
-* Match the candidate's experience to the position
-* Identify missing or weak requirements
-* Tailor resume content for a specific position
-* Generate personalized cover letters
-* Draft application answers
-* Prepare relevant project and experience descriptions
-* Maintain application-specific information
+* Resume-to-job matching
+* Skill matching
+* Experience matching
+* Job relevance analysis
+* Skill-gap identification
 
-The goal is to make each application **targeted rather than generic**.
+### 🎤 Interview Coach
 
----
+* Interview question generation
+* Role-specific interview preparation
+* AI-assisted answer evaluation
+* Feedback and improvement suggestions
+* Mock interview workflows
 
-### 📊 Application Tracking
+### 📋 Application Management
 
-The agent maintains a centralized view of the candidate's job applications.
+* Save job opportunities
+* Track applications
+* Application status management
+* Application history
+* Follow-up tracking
 
-**Application lifecycle:**
+### 🤖 AI Agent Orchestration
 
-```text
-Saved
-  ↓
-Preparing
-  ↓
-Applied
-  ↓
-Screening
-  ↓
-Interview
-  ↓
-Offer / Rejected / Withdrawn
-```
+* LLM-powered agents
+* Agent workflows
+* Tool integration
+* Context-aware assistance
+* RAG-based information retrieval
+* Automated job-search workflows
 
-**Capabilities:**
+### 🖥️ Frontend Platform
 
-* Track companies and positions
-* Record application dates
-* Track application status
-* Store job descriptions and application materials
-* Track interview stages
-* Track deadlines and follow-ups
-* Record recruiter / hiring-manager information
-* Add notes and interactions
-* Provide an overview of the current job pipeline
+* Candidate dashboard
+* Job discovery interface
+* Resume management
+* Application tracking
+* Interview preparation
+* AI assistant interface
 
----
+## 🏗️ Architecture
 
-### 🎤 Interview Support
-
-The agent provides preparation based on the **specific role and company**, rather than generic interview questions.
-
-**Capabilities:**
-
-* Research the company and role
-* Analyze the job description
-* Generate role-specific interview questions
-* Prepare technical questions
-* Prepare behavioral questions
-* Generate questions based on the candidate's experience
-* Conduct mock interviews
-* Evaluate answers
-* Provide feedback
-* Suggest stronger answers
-* Prepare questions to ask the interviewer
-* Track interview preparation notes
-
----
-
-## 🧠 AI Agent Architecture
-
-The system is designed around specialized agents that cooperate across the job-search workflow.
+The project is organized around independent functional modules that can evolve separately while integrating through a shared application architecture.
 
 ```text
                     ┌─────────────────────┐
-                    │   Job Assistant     │
-                    │       Agent         │
+                    │    Frontend App     │
                     └──────────┬──────────┘
                                │
-          ┌────────────────────┼────────────────────┐
-          │                    │                    │
-          ▼                    ▼                    ▼
-   ┌─────────────┐      ┌─────────────┐      ┌─────────────┐
-   │ Job Search  │      │ Application │      │  Interview  │
-   │    Agent    │      │    Agent    │      │    Agent    │
-   └─────────────┘      └─────────────┘      └─────────────┘
-          │                    │                    │
-          └────────────────────┼────────────────────┘
                                ▼
-                     ┌──────────────────┐
-                     │ Application      │
-                     │ Tracking /       │
-                     │ Persistent State │
-                     └──────────────────┘
+                    ┌─────────────────────┐
+                    │    API / Backend    │
+                    └──────────┬──────────┘
+                               │
+              ┌────────────────┼────────────────┐
+              │                │                │
+              ▼                ▼                ▼
+        Job Discovery    Resume Processing   Applications
+              │                │                │
+              └────────────────┼────────────────┘
+                               ▼
+                    ┌─────────────────────┐
+                    │   Job Matching      │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │  AI Agent Layer     │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │ LLM / RAG / Tools   │
+                    └─────────────────────┘
 ```
 
-The agents share relevant candidate and application context so information does not need to be repeatedly entered.
+## 🌳 Development Branches
 
----
-
-## 🔄 End-to-End Workflow
+Development is organized by functionality:
 
 ```text
-Candidate Profile
-       │
-       ▼
-   Job Search
-       │
-       ▼
-   Job Analysis
-       │
-       ▼
- Application Preparation
-       │
-       ▼
-    Apply
-       │
-       ▼
- Track Application
-       │
-       ▼
- Interview Preparation
-       │
-       ▼
-     Interview
-       │
-       ▼
- Update Application Status
+project-setup
+│
+├── feature/authentication
+├── feature/user-profile
+├── feature/job-discovery
+├── feature/job-ingestion
+├── feature/resume-processing
+├── feature/job-matching
+├── feature/interview-coach
+├── feature/application-management
+├── feature/ai-agent-orchestration
+└── feature/frontend-platform
 ```
 
----
+Feature branches are developed independently and merged into `project-setup` through pull requests.
 
-## 🛠️ Technology
+The `main` branch represents the stable project state.
 
-> Update this section as the implementation evolves.
+```text
+feature/*
+     ↓
+project-setup
+     ↓
+main
+```
 
-* **Backend:** TBD
-* **Frontend:** TBD
-* **AI / LLM:** TBD
-* **Database:** TBD
-* **Job Data Sources:** TBD
-* **Authentication:** TBD
-* **Deployment:** TBD
+## 🛠️ Technology Stack
 
----
+The technology stack is currently being established as development progresses.
+
+### Backend
+
+* Python
+* FastAPI
+* REST APIs
+* PostgreSQL
+
+### AI
+
+* Large Language Models (LLMs)
+* Retrieval-Augmented Generation (RAG)
+* AI agents
+* Prompt engineering
+* Tool calling
+
+### Frontend
+
+* React
+* TypeScript
+* Modern web APIs
+
+### Development
+
+* Git
+* GitHub
+* GitHub Actions
+* Pull Requests
+* Automated testing
+
+> The stack may evolve as individual components are implemented.
 
 ## 📁 Project Structure
 
+The project will follow a modular structure similar to:
+
 ```text
 job-assistant-agent/
-├── frontend/
 ├── backend/
-├── agents/
-│   ├── job-search/
-│   ├── application/
-│   ├── tracking/
-│   └── interview/
-├── prompts/
-├── tests/
+│   ├── api/
+│   ├── agents/
+│   ├── services/
+│   ├── models/
+│   └── tests/
+│
+├── frontend/
+│   ├── components/
+│   ├── pages/
+│   ├── services/
+│   └── tests/
+│
 ├── docs/
-├── .env.example
+├── tests/
+├── .github/
 ├── README.md
-└── ...
+└── LICENSE
 ```
 
----
+The exact structure may change as implementation progresses.
 
-## 🎯 Project Goals
+## 🔄 Development Workflow
 
-The project aims to build an AI assistant that can support candidates throughout the entire job-search process.
+1. Create or switch to the relevant feature branch.
+2. Implement the functionality.
+3. Add or update tests.
+4. Commit changes with a clear message.
+5. Push the feature branch.
+6. Open a Pull Request into `project-setup`.
+7. Review and address feedback.
+8. Merge after approval.
+9. Promote stable changes from `project-setup` to `main`.
 
-### Primary Goals
+## 🤝 Contributing
 
-* Reduce repetitive job-search work
-* Improve application personalization
-* Keep job applications organized
-* Make interview preparation more targeted
-* Maintain useful context across the entire hiring process
-* Provide an agent-driven workflow instead of a collection of disconnected tools
+Contributions are welcome.
 
----
+Before starting work:
+
+1. Check the existing issues and project tasks.
+2. Choose the appropriate functional area.
+3. Create a feature branch.
+4. Keep changes focused and modular.
+5. Add tests where appropriate.
+6. Open a Pull Request for review.
+
+Please avoid committing directly to protected branches.
+
+## 📌 Project Status
+
+**Early development — first version**
+
+The architecture and functional areas are being established. Features will be implemented incrementally through the project's development branches.
 
 ## 🗺️ Roadmap
 
-### Phase 1 — Foundation
+* [ ] Authentication
+* [ ] User profiles
+* [ ] Job discovery
+* [ ] Job ingestion
+* [ ] Resume processing
+* [ ] Job matching
+* [ ] Interview coach
+* [ ] Application management
+* [ ] AI agent orchestration
+* [ ] Frontend platform
+* [ ] Automated testing
+* [ ] CI/CD
+* [ ] Production deployment
 
-* [ ] Project architecture
-* [ ] Candidate profile
-* [ ] Job data model
-* [ ] Application data model
-* [ ] Basic AI agent integration
+## 📄 License
 
-### Phase 2 — Job Search
-
-* [ ] Job search
-* [ ] Job filtering
-* [ ] Job description analysis
-* [ ] Candidate-job matching
-* [ ] Save jobs
-
-### Phase 3 — Applications
-
-* [ ] Resume analysis
-* [ ] Resume tailoring
-* [ ] Cover letter generation
-* [ ] Application answer generation
-* [ ] Application workflow
-* [ ] Recruiter Investigation
-
-### Phase 4 — Tracking
-
-* [ ] Application dashboard
-* [ ] Status tracking
-* [ ] Interview tracking
-* [ ] Follow-up reminders
-* [ ] Application history
-* [ ] Recruiter Contact
-
-### Phase 5 — Interview Support
-
-* [ ] Company research
-* [ ] Role-specific questions
-* [ ] Mock interviews
-* [ ] Answer evaluation
-* [ ] Interview feedback
-* [ ] Interview preparation workspace
-* [ ] Real-Time Interview Support
-* [ ] Voice Agent
-
+This project is licensed under the MIT License.
 
 ---
 
-## 🔐 Privacy
-
-Job-search data can contain sensitive personal and professional information.
-
-The system should prioritize:
-
-* Secure handling of resumes and personal information
-* Minimal data collection
-* Protected application data
-* Secure credentials and API keys
-* Clear separation between user data and application/job data
-
----
-
-## 📌 Status
-
-**🚧 Active Development**
-
-The project is currently being developed as an AI-powered end-to-end job assistant.
+Built collaboratively with a focus on practical AI-assisted job search and career automation.
