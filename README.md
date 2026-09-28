@@ -257,6 +257,14 @@ The project aims to build an AI assistant that can support candidates throughout
 * [ ] Application workflow
 * [ ] Recruiter Investigation
 
+### Phase 4 — Tracking
+
+* [ ] Application dashboard
+* [ ] Status tracking
+* [ ] Interview tracking
+* [ ] Follow-up reminders
+* [ ] Application history
+* [ ] Recruiter Contact
 
 ### Phase 5 — Interview Support
 
