@@ -1,21 +1,23 @@
 # Job Assistant Agent
 
-An AI-powered job search and career assistance platform designed to help candidates discover relevant opportunities, understand job requirements, tailor their applications, and prepare for interviews.
+An AI-powered job search and career assistance platform developed by **[MohCodes Team](https://github.com/mohocodes-team)**.
+
+The project aims to help candidates discover relevant opportunities, understand job requirements, tailor their applications, prepare for interviews, and manage the overall job-search workflow with AI-powered tools and agents.
 
 ## 🚀 Overview
 
-**Job Assistant Agent** brings the major stages of the job-search process into one platform.
+**Job Assistant Agent** brings major stages of the job-search process into one platform.
 
-Instead of manually switching between job boards, resumes, notes, and interview preparation tools, the system aims to provide an intelligent workflow for:
+The system is being developed to help candidates:
 
-* Finding relevant job opportunities
-* Collecting and organizing job listings
-* Processing and understanding resumes
-* Matching candidates with suitable positions
-* Identifying skill gaps and job requirements
-* Preparing for interviews
-* Managing applications
-* Using AI agents to automate repetitive career tasks
+* 🔎 Discover relevant job opportunities
+* 📥 Collect and organize job listings
+* 📄 Process and understand resumes
+* 🎯 Match candidates with suitable positions
+* 🧠 Identify skills and experience gaps
+* 🎤 Prepare for interviews
+* 📋 Manage job applications
+* 🤖 Automate repetitive career-related tasks with AI agents
 
 ## ✨ Planned Features
 
@@ -43,7 +45,7 @@ Instead of manually switching between job boards, resumes, notes, and interview 
 ### 📥 Job Ingestion
 
 * Job data collection
-* External job source integration
+* External job-source integration
 * Job normalization
 * Duplicate detection
 * Structured job data
@@ -86,7 +88,7 @@ Instead of manually switching between job boards, resumes, notes, and interview 
 * Agent workflows
 * Tool integration
 * Context-aware assistance
-* RAG-based information retrieval
+* Retrieval-Augmented Generation (RAG)
 * Automated job-search workflows
 
 ### 🖥️ Frontend Platform
@@ -167,7 +169,7 @@ main
 
 ## 🛠️ Technology Stack
 
-The technology stack is currently being established as development progresses.
+The technology stack is being established as development progresses.
 
 ### Backend
 
@@ -190,19 +192,19 @@ The technology stack is currently being established as development progresses.
 * TypeScript
 * Modern web APIs
 
-### Development
+### Development & Infrastructure
 
 * Git
 * GitHub
 * GitHub Actions
-* Pull Requests
 * Automated testing
+* CI/CD
 
-> The stack may evolve as individual components are implemented.
+> The technology stack may evolve as development progresses.
 
 ## 📁 Project Structure
 
-The project will follow a modular structure similar to:
+The project is designed around a modular architecture:
 
 ```text
 job-assistant-agent/
@@ -226,19 +228,24 @@ job-assistant-agent/
 └── LICENSE
 ```
 
-The exact structure may change as implementation progresses.
+The exact structure may evolve as individual modules are implemented.
 
 ## 🔄 Development Workflow
 
-1. Create or switch to the relevant feature branch.
-2. Implement the functionality.
-3. Add or update tests.
-4. Commit changes with a clear message.
-5. Push the feature branch.
-6. Open a Pull Request into `project-setup`.
-7. Review and address feedback.
-8. Merge after approval.
-9. Promote stable changes from `project-setup` to `main`.
+The project is developed collaboratively by **MohCodes Team**.
+
+1. Select the appropriate functional area.
+2. Work on the corresponding feature branch.
+3. Implement the functionality.
+4. Add or update tests.
+5. Commit changes with clear commit messages.
+6. Push the feature branch.
+7. Open a Pull Request into `project-setup`.
+8. Review and address feedback.
+9. Merge after approval.
+10. Promote stable changes from `project-setup` to `main`.
+
+Direct pushes to protected branches should be avoided.
 
 ## 🤝 Contributing
 
@@ -246,20 +253,19 @@ Contributions are welcome.
 
 Before starting work:
 
-1. Check the existing issues and project tasks.
+1. Check existing issues and project tasks.
 2. Choose the appropriate functional area.
-3. Create a feature branch.
+3. Create or use the relevant feature branch.
 4. Keep changes focused and modular.
 5. Add tests where appropriate.
 6. Open a Pull Request for review.
-
-Please avoid committing directly to protected branches.
+7. Address review feedback before merging.
 
 ## 📌 Project Status
 
-**Early development — first version**
+**Early Development — v0.1**
 
-The architecture and functional areas are being established. Features will be implemented incrementally through the project's development branches.
+The core architecture and functional areas are currently being established. Features are being implemented incrementally by the **MohCodes Team**.
 
 ## 🗺️ Roadmap
 
@@ -277,10 +283,14 @@ The architecture and functional areas are being established. Features will be im
 * [ ] CI/CD
 * [ ] Production deployment
 
+## 👥 Team
+
+Developed and maintained by **MohCodes Team**.
+
 ## 📄 License
 
 This project is licensed under the MIT License.
 
 ---
 
-Built collaboratively with a focus on practical AI-assisted job search and career automation.
+**MohCodes Team** — Building practical AI-powered tools for modern job seekers.
