@@ -266,6 +266,18 @@ The project aims to build an AI assistant that can support candidates throughout
 * [ ] Application history
 * [ ] Recruiter Contact
 
+### Phase 5 — Interview Support
+
+* [ ] Company research
+* [ ] Role-specific questions
+* [ ] Mock interviews
+* [ ] Answer evaluation
+* [ ] Interview feedback
+* [ ] Interview preparation workspace
+* [ ] Real-Time Interview Support
+* [ ] Voice Agent
+
+
 ---
 
 ## 🔐 Privacy
