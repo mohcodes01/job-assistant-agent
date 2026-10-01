@@ -56,11 +56,10 @@ interface Application {
   source?: string;
   notes?: string;
 }
-
+```
 
 ### Part 2 — Tracking Workflow & Data Model
 
-```md
 # Application Tracking Workflow
 
 ## Workflow
@@ -89,11 +88,9 @@ Track Status
       ├──► Offer
       │
       └──► Rejection / Withdrawal
+```
 
-      
-### Part 3 — Analytics, Notifications & Constraints
 
-```md
 # Application Tracking — Analytics & Extensions
 
 ## Dashboard Information
