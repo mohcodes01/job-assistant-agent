@@ -123,3 +123,101 @@ Generated answers should distinguish between:
 - Missing information requiring user input
 
 Low-confidence answers should be flagged rather than presented as verified facts.
+
+## Application Validation
+
+Before an application is considered ready, the agent should validate:
+
+- Required questions are answered.
+- Answers comply with length restrictions.
+- Resume information is internally consistent.
+- No unsupported claims were introduced.
+- Required documents are available.
+- Contact information is complete.
+- Job-specific requirements have been addressed.
+- User confirmation is obtained where necessary.
+
+## Application Workflow
+
+```text
+Job Opportunity
+      │
+      ▼
+Application Analysis
+      │
+      ▼
+Requirement Extraction
+      │
+      ▼
+Profile / Resume Matching
+      │
+      ▼
+Question Extraction
+      │
+      ▼
+Answer Preparation
+      │
+      ▼
+Validation
+      │
+      ▼
+User Review
+      │
+      ▼
+Application Ready
+      │
+      ▼
+Explicit User Authorization
+
+
+
+### 5. Security, Data Handling & Future Extensions
+
+```md
+## Security & Data Handling
+
+The Application Support Agent should:
+
+- Minimize exposure of personal information.
+- Only use information required for the application.
+- Never fabricate personal details.
+- Never expose private application data unnecessarily.
+- Keep user-provided information separate from job-source data.
+- Clearly distinguish generated content from user-provided content.
+- Require explicit authorization for external submission actions.
+
+## Auditability
+
+The agent should retain enough context to explain:
+
+- Why an answer was generated.
+- Which user information supported the answer.
+- Which job requirement the answer addresses.
+- Whether the answer was modified by the user.
+- Whether the application was submitted with authorization.
+
+## Future Extensions
+
+- Automated application form assistance
+- Application status tracking
+- Application history
+- Resume version management
+- Cover letter generation
+- Company-specific application templates
+- Application deadline reminders
+- Follow-up email generation
+- Recruiter communication support
+- Application analytics
+- Multi-agent application workflows
+
+## Success Criteria
+
+The Application Support Agent should produce applications that are:
+
+- Accurate
+- Relevant
+- Consistent
+- Explainable
+- User-controlled
+- Privacy-conscious
+- Ready for human review
