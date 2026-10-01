@@ -56,3 +56,36 @@ interface Application {
   source?: string;
   notes?: string;
 }
+
+
+### Part 2 — Tracking Workflow & Data Model
+
+```md
+# Application Tracking Workflow
+
+## Workflow
+
+```text
+Job Opportunity
+      │
+      ▼
+Save Application
+      │
+      ▼
+Prepare Application
+      │
+      ▼
+Submit Application
+      │
+      ▼
+Track Status
+      │
+      ├──► Recruiter Contact
+      │
+      ├──► Screening
+      │
+      ├──► Interviews
+      │
+      ├──► Offer
+      │
+      └──► Rejection / Withdrawal
