@@ -22,3 +22,32 @@ It analyzes job postings, prepares application materials, validates application 
 ## Core Principle
 
 The agent should assist with applications without fabricating user information or submitting applications without explicit user authorization.
+
+## Input
+
+The agent may receive:
+
+- Job posting
+- Company information
+- User profile
+- Resume / CV
+- Portfolio information
+- Relevant project history
+- Job-specific application questions
+- User preferences
+- Existing application data
+
+### Application Context
+
+```ts
+interface ApplicationContext {
+  jobId?: string;
+  jobTitle: string;
+  company: string;
+  jobUrl?: string;
+  jobDescription?: string;
+  resume?: string;
+  profile?: UserProfile;
+  questions?: ApplicationQuestion[];
+  existingAnswers?: ApplicationAnswer[];
+}
