@@ -49,3 +49,67 @@ The agent may receive:
 ## Core Principle
 
 The agent should provide preparation and feedback based on available information without inventing the user's experience, achievements, projects, or qualifications.
+
+## Interview Analysis
+
+The agent should analyze:
+
+- Required technical skills
+- Preferred technical skills
+- Core responsibilities
+- Seniority expectations
+- Required experience
+- Domain knowledge
+- Behavioral competencies
+- Likely interview topics
+- Potential knowledge gaps
+
+## Question Generation
+
+Questions should be generated according to the target role and interview stage.
+
+Question categories may include:
+
+- Technical knowledge
+- Coding
+- Architecture
+- System design
+- Debugging
+- AI / ML concepts
+- Project experience
+- Behavioral scenarios
+- Leadership
+- Collaboration
+- Problem solving
+- Role-specific situations
+
+Questions should vary in difficulty and should avoid unnecessary repetition.
+
+## Mock Interview Workflow
+
+```text
+Job Description
+      │
+      ▼
+Interview Analysis
+      │
+      ▼
+Question Generation
+      │
+      ▼
+Mock Interview
+      │
+      ▼
+User Response
+      │
+      ▼
+Response Analysis
+      │
+      ▼
+Feedback
+      │
+      ▼
+Next Question
+      │
+      ▼
+Interview Summary
