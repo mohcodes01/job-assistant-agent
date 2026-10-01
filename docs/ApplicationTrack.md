@@ -4,22 +4,20 @@
 
 The Application Tracking Agent manages and monitors a user's job applications throughout the hiring lifecycle.
 
-It keeps application records organized, tracks status changes, stores important dates, manages follow-ups, and provides a clear overview of active and completed applications.
+It keeps application records organized, tracks status changes, stores important dates, and provides a clear view of the user's active and completed applications.
 
 ## Responsibilities
 
 - Create and maintain application records.
-- Track application status and status history.
+- Track application status.
 - Record application dates and deadlines.
 - Associate applications with specific job opportunities.
 - Store company and position information.
-- Track recruiter and hiring-manager information when provided.
-- Track interviews and hiring stages.
-- Manage follow-up actions and reminders.
-- Detect potentially stale applications.
-- Detect duplicate applications.
+- Track interview stages.
+- Record recruiter and hiring-manager information when provided.
+- Track follow-up actions.
+- Detect stale applications.
 - Provide application history and current status.
-- Generate descriptive application analytics.
 
 ## Application Status
 
@@ -44,37 +42,29 @@ The status model should remain configurable so additional hiring stages can be i
 
 ## Application Record
 
-The application record should contain:
+```ts
+interface Application {
+  id: string;
+  jobId?: string;
+  company: string;
+  jobTitle: string;
+  jobUrl?: string;
+  status: ApplicationStatus;
+  appliedAt?: string;
+  updatedAt: string;
+  deadline?: string;
+  source?: string;
+  notes?: string;
+}
+```
 
-- Unique application ID
-- Related job ID
-- Company name
-- Job title
-- Job URL
-- Current status
-- Application date
-- Last updated timestamp
-- Application deadline
-- Source
-- Recruiter information
-- Notes
+### Part 2 — Tracking Workflow & Data Model
 
-## Application Event
+# Application Tracking Workflow
 
-Every important status or activity change should be recorded.
+## Workflow
 
-Each event should contain:
-
-- Event ID
-- Application ID
-- Event type
-- Previous status
-- New status
-- Description
-- Timestamp
-
-## Tracking Workflow
-
+```text
 Job Opportunity
       │
       ▼
@@ -89,9 +79,7 @@ Submit Application
       ▼
 Track Status
       │
-      ├──► Application Viewed
-      │
-      ├──► Recruiter Contacted
+      ├──► Recruiter Contact
       │
       ├──► Screening
       │
@@ -100,46 +88,12 @@ Track Status
       ├──► Offer
       │
       └──► Rejection / Withdrawal
+```
 
-## Status Updates
 
-Status changes may be triggered by:
+# Application Tracking — Analytics & Extensions
 
-- User updates
-- Imported application information
-- Recruiter communication
-- Interview scheduling
-- Offer notifications
-- Manual review
-
-Every status change must include a timestamp and should be added to the application history.
-
-## Follow-Up Tracking
-
-The agent should support:
-
-- Follow-up dates
-- Interview dates
-- Application deadlines
-- Recruiter response dates
-- Custom reminders
-- Follow-up notes
-
-Users should be able to manually create, modify, and remove follow-up actions.
-
-## Duplicate Detection
-
-The system should detect potential duplicate applications using:
-
-- Company
-- Job title
-- Job URL
-- External job ID
-- Application date
-
-Potential duplicates should be flagged instead of silently creating another application record.
-
-## Application Dashboard
+## Dashboard Information
 
 The agent should provide an overview containing:
 
@@ -152,7 +106,6 @@ The agent should provide an overview containing:
 - Offers received
 - Rejected applications
 - Withdrawn applications
-- Applications requiring user action
 
 ## Notifications
 
@@ -166,34 +119,21 @@ The system may notify users about:
 - Recruiter responses
 - Required user actions
 
-Notifications must be configurable by the user.
+Notifications should be configurable by the user.
 
 ## Analytics
 
-The agent may calculate descriptive metrics from stored application data:
+The system may calculate descriptive metrics such as:
 
 - Applications submitted over time
 - Applications by company
 - Applications by role
-- Applications by source
 - Status distribution
 - Average time between application stages
 - Interview conversion rate
 - Offer conversion rate
 
-Analytics should describe the user's stored application history and should not invent missing data.
-
-## Data Integrity
-
-The agent should:
-
-- Preserve application history.
-- Record timestamps for important events.
-- Prevent accidental status overwrites.
-- Validate application identifiers.
-- Keep job and application records properly associated.
-- Handle deleted or expired job postings gracefully.
-- Preserve historical information even when the original job posting is unavailable.
+Analytics should be presented as factual summaries of the user's stored application data.
 
 ## Constraints
 
@@ -201,29 +141,11 @@ The Application Tracking Agent must:
 
 - Never fabricate application status.
 - Never mark an application as submitted without confirmation.
-- Never fabricate recruiter communication.
+- Preserve application history.
 - Clearly distinguish user-provided information from imported information.
 - Protect sensitive application data.
 - Avoid sending messages or follow-ups without explicit authorization.
-- Avoid modifying application records without an authorized action.
-- Handle incomplete application information safely.
-
-## Error Handling
-
-The agent should gracefully handle:
-
-- Missing job information
-- Invalid application IDs
-- Duplicate records
-- Missing status information
-- Expired job postings
-- Failed imports
-- Invalid dates
-- Notification failures
-- External service failures
-- Conflicting application updates
-
-A failure affecting one application should not prevent the system from processing other applications.
+- Handle deleted or expired job postings gracefully.
 
 ## Future Extensions
 
@@ -232,23 +154,7 @@ A failure affecting one application should not prevent the system from processin
 - Recruiter communication tracking
 - Automatic status detection
 - Interview preparation integration
-- Offer tracking
+- Offer comparison
 - Application pipeline visualization
-- Advanced application analytics
-- Application document version tracking
-- Follow-up message generation
+- Job-search performance analytics
 - Multi-agent career workflow integration
-
-## Success Criteria
-
-The Application Tracking Agent should provide:
-
-- Accurate application records
-- Reliable status tracking
-- Complete application history
-- Clear follow-up management
-- Useful descriptive analytics
-- Duplicate protection
-- Strong data integrity
-- User-controlled updates
-- Privacy-conscious data handling
