@@ -113,3 +113,57 @@ Next Question
       │
       ▼
 Interview Summary
+
+
+
+### Part 3 — Evaluation, Tracking & Extensions
+
+```md
+## Interview Evaluation
+
+After a mock interview, the agent should generate a structured summary containing:
+
+- Questions asked
+- User responses
+- Key strengths
+- Areas for improvement
+- Topics requiring additional preparation
+- Suggested practice questions
+- Recommended preparation topics
+
+The evaluation should be based only on the interview session and available user information.
+
+## Interview Tracking
+
+The agent may track:
+
+- Interview date
+- Interview stage
+- Interview format
+- Interviewer information
+- Preparation status
+- Topics practiced
+- User notes
+- Interview feedback
+- Follow-up actions
+
+## Preparation Plan
+
+The agent should be able to create a preparation plan based on:
+
+- Available preparation time
+- Interview stage
+- Job requirements
+- User's existing knowledge
+- Identified preparation gaps
+
+Example:
+
+```text
+Day 1 → Job & Company Analysis
+Day 2 → Technical Fundamentals
+Day 3 → Role-Specific Questions
+Day 4 → System Design / Coding
+Day 5 → Behavioral Practice
+Day 6 → Mock Interview
+Day 7 → Final Review
