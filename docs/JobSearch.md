@@ -2,34 +2,26 @@
 
 ## Overview
 
-The Job Search Agent is responsible for discovering, filtering, analyzing, and organizing relevant job opportunities based on a user's profile, skills, experience, preferences, and career goals.
+The Job Search Agent discovers and analyzes job opportunities that align with a user's career profile, technical skills, experience, location preferences, and employment goals.
 
-It transforms a broad job search into a structured pipeline that helps users identify relevant opportunities while reducing irrelevant listings and repetitive manual searching.
+Its primary purpose is to automate repetitive job discovery and provide structured, relevant opportunities that can be consumed by the rest of the Job Search Agent workflow.
 
 ## Responsibilities
 
-- Search for relevant job opportunities across supported sources.
-- Match job requirements against the user's profile.
-- Filter jobs based on:
-  - Job title
-  - Required skills
-  - Experience level
-  - Location
-  - Remote / hybrid / onsite preference
-  - Employment type
-  - Salary range
-  - Technology stack
-  - Industry
-- Extract structured information from job postings.
-- Detect duplicate or highly similar job listings.
-- Rank and prioritize jobs based on user-defined criteria.
-- Track previously discovered jobs.
-- Identify important application requirements and deadlines.
-- Provide concise explanations for why a job matches the user's profile.
+- Discover jobs from configured job platforms and sources.
+- Parse and normalize job posting information.
+- Compare job requirements with the user's profile.
+- Filter opportunities using explicit user preferences.
+- Identify required and preferred qualifications.
+- Detect duplicate job postings across different sources.
+- Calculate a transparent relevance score.
+- Explain the main reasons behind each match.
+- Track previously processed opportunities.
+- Return structured job results to downstream agents.
 
 ## Input
 
-The agent should accept a structured job-search profile:
+The agent receives a job-search configuration:
 
     interface JobSearchProfile {
       targetRoles: string[];
@@ -50,7 +42,7 @@ The agent should accept a structured job-search profile:
 
 ## Output
 
-Each discovered job should be normalized into a consistent structure:
+Each job should be converted into a normalized opportunity:
 
     interface JobOpportunity {
       title: string;
@@ -69,31 +61,27 @@ Each discovered job should be normalized into a consistent structure:
       discoveredAt: string;
     }
 
-## Job Matching
+## Matching Strategy
 
-The agent should evaluate opportunities using multiple signals rather than relying only on keyword matching.
+The agent should use multiple matching signals instead of relying exclusively on keyword overlap.
 
 ### Matching Signals
 
-- Role/title similarity
-- Technical skill overlap
-- Experience compatibility
+- Job title relevance
+- Required skill coverage
+- Preferred skill coverage
+- Experience-level compatibility
 - Location compatibility
 - Remote-work compatibility
 - Employment-type compatibility
 - Salary compatibility
 - Industry relevance
 - User-defined keywords
-- Explicit exclusions
+- Company exclusions
 
-The matching system should distinguish between:
+Missing information should be treated as unknown rather than automatically considered a mismatch.
 
-- Required qualifications
-- Preferred qualifications
-- Nice-to-have skills
-- Potential mismatches
-
-## Search Pipeline
+## Processing Flow
 
     User Profile
          │
@@ -101,16 +89,16 @@ The matching system should distinguish between:
     Search Configuration
          │
          ▼
-    Job Discovery
+    Source Discovery
          │
          ▼
     Job Extraction
          │
          ▼
-    Normalization
+    Data Normalization
          │
          ▼
-    Deduplication
+    Duplicate Detection
          │
          ▼
     Profile Matching
@@ -119,78 +107,78 @@ The matching system should distinguish between:
     Filtering
          │
          ▼
-    Ranking
+    Relevance Scoring
          │
          ▼
-    Job Results
+    Structured Results
 
 ## Deduplication
 
-The agent should avoid returning the same opportunity multiple times when it appears across different sources.
+Duplicate detection should combine multiple identifiers where available:
 
-Potential deduplication signals include:
-
-- Company
-- Job title
-- Location
 - Canonical job URL
 - External job ID
+- Company name
+- Normalized job title
+- Location
 - Description similarity
 
-## Ranking
+When the same position appears on multiple sources, the agent should prefer the most complete and reliable representation.
 
-Jobs may be ordered according to the user's configured preferences.
+## Relevance Scoring
+
+The relevance score should be based on configurable matching signals rather than a fixed universal formula.
 
 Example factors:
 
-    Role Match
-    + Skill Match
-    + Experience Match
-    + Location Match
-    + Remote Match
-    + Salary Match
-    + Preference Match
+    Role Relevance
+    + Skill Coverage
+    + Experience Compatibility
+    + Location Compatibility
+    + Remote Compatibility
+    + Salary Compatibility
+    + Preference Alignment
 
-The system should preserve the underlying matching signals so users can understand why a job was surfaced.
+The agent should expose match reasons alongside the score so results remain explainable.
 
-## Agent Constraints
+## Constraints
 
-The Job Search Agent should:
+The Job Search Agent must:
 
-- Never fabricate job information.
-- Preserve the original job URL whenever available.
-- Clearly identify the source of each listing.
-- Avoid treating missing information as a negative match.
-- Distinguish explicit requirements from inferred requirements.
-- Avoid applying for jobs automatically unless explicitly authorized by the user.
-- Respect source-specific access and usage restrictions.
-- Keep user profile data separate from publicly sourced job data.
+- Never invent missing job details.
+- Preserve source URLs whenever possible.
+- Identify the source of every opportunity.
+- Separate extracted facts from inferred matches.
+- Respect user-defined exclusions.
+- Avoid automatic applications without explicit authorization.
+- Handle unavailable or incomplete sources gracefully.
+- Avoid exposing unnecessary user profile information to external sources.
 
 ## Error Handling
 
-The agent should gracefully handle:
+The agent should handle:
 
-- Unreachable job sources
+- Source connection failures
 - Invalid job URLs
-- Incomplete job descriptions
-- Missing salary information
-- Missing location information
-- Duplicate listings
-- Parsing failures
-- Temporary source failures
-- Unsupported job sources
+- Parsing errors
+- Incomplete job postings
+- Missing compensation data
+- Missing location data
+- Duplicate results
+- Unsupported source formats
+- Temporary API failures
 
-A failed source should not prevent the agent from processing successfully retrieved opportunities.
+Individual source failures should not stop the entire job-search pipeline.
 
 ## Future Extensions
 
 - Personalized job alerts
-- Job-change tracking
-- Application deadline tracking
-- Resume-to-job matching
-- Cover-letter generation
-- Application status tracking
-- Interview preparation
+- Scheduled job searches
+- Resume-to-job comparison
+- Application tracking
+- Job deadline monitoring
 - Company research
-- Skill-gap analysis
-- Multi-agent job-search workflows
+- Cover-letter generation
+- Skill-gap detection
+- Interview preparation
+- Multi-agent job-search orchestration
