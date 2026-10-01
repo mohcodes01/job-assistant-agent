@@ -66,3 +66,60 @@ interface ApplicationAnswer {
   confidence?: number;
   source?: string;
 }
+
+
+### 3. Application Analysis & Generation
+
+```md
+## Application Analysis
+
+The agent should analyze the opportunity before preparing application content.
+
+### Analysis Areas
+
+- Required qualifications
+- Preferred qualifications
+- Technical requirements
+- Years of experience
+- Education requirements
+- Location requirements
+- Work authorization requirements
+- Language requirements
+- Portfolio requirements
+- Salary expectations
+- Application questions
+- Additional documents
+
+## Resume Alignment
+
+The agent should identify:
+
+- Relevant experience
+- Relevant technical skills
+- Relevant projects
+- Missing keywords
+- Potential experience gaps
+- Requirements that need clarification
+
+The agent should not invent experience, qualifications, employers, projects, or technologies.
+
+## Answer Generation
+
+For application questions, the agent should:
+
+1. Understand the question.
+2. Identify relevant user-provided information.
+3. Construct a concise answer.
+4. Verify factual consistency.
+5. Respect character or word limits.
+6. Flag answers requiring user confirmation.
+
+## Confidence
+
+Generated answers should distinguish between:
+
+- Verified information
+- Reasonable interpretation
+- Missing information requiring user input
+
+Low-confidence answers should be flagged rather than presented as verified facts.
