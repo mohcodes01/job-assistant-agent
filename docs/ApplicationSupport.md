@@ -51,3 +51,18 @@ interface ApplicationContext {
   questions?: ApplicationQuestion[];
   existingAnswers?: ApplicationAnswer[];
 }
+
+interface ApplicationQuestion {
+  id: string;
+  question: string;
+  type?: string;
+  required?: boolean;
+  maxLength?: number;
+}
+
+interface ApplicationAnswer {
+  questionId: string;
+  answer: string;
+  confidence?: number;
+  source?: string;
+}
