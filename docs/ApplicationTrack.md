@@ -89,3 +89,75 @@ Track Status
       ├──► Offer
       │
       └──► Rejection / Withdrawal
+
+      
+### Part 3 — Analytics, Notifications & Constraints
+
+```md
+# Application Tracking — Analytics & Extensions
+
+## Dashboard Information
+
+The agent should provide an overview containing:
+
+- Total applications
+- Active applications
+- Applications by status
+- Upcoming interviews
+- Pending follow-ups
+- Recent status changes
+- Offers received
+- Rejected applications
+- Withdrawn applications
+
+## Notifications
+
+The system may notify users about:
+
+- Upcoming interviews
+- Application deadlines
+- Scheduled follow-ups
+- Long-running applications
+- Status changes
+- Recruiter responses
+- Required user actions
+
+Notifications should be configurable by the user.
+
+## Analytics
+
+The system may calculate descriptive metrics such as:
+
+- Applications submitted over time
+- Applications by company
+- Applications by role
+- Status distribution
+- Average time between application stages
+- Interview conversion rate
+- Offer conversion rate
+
+Analytics should be presented as factual summaries of the user's stored application data.
+
+## Constraints
+
+The Application Tracking Agent must:
+
+- Never fabricate application status.
+- Never mark an application as submitted without confirmation.
+- Preserve application history.
+- Clearly distinguish user-provided information from imported information.
+- Protect sensitive application data.
+- Avoid sending messages or follow-ups without explicit authorization.
+- Handle deleted or expired job postings gracefully.
+
+## Future Extensions
+
+- Email integration
+- Calendar integration
+- Recruiter communication tracking
+- Automatic status detection
+- Interview preparation integration
+- Offer comparison
+- Application pipeline visualization
+- Job-search performance analytics
+- Multi-agent career workflow integration
