@@ -154,3 +154,31 @@ The Job Search Agent must:
 - Handle unavailable or incomplete sources gracefully.
 - Avoid exposing unnecessary user profile information to external sources.
 
+## Error Handling
+
+The agent should handle:
+
+- Source connection failures
+- Invalid job URLs
+- Parsing errors
+- Incomplete job postings
+- Missing compensation data
+- Missing location data
+- Duplicate results
+- Unsupported source formats
+- Temporary API failures
+
+Individual source failures should not stop the entire job-search pipeline.
+
+## Future Extensions
+
+- Personalized job alerts
+- Scheduled job searches
+- Resume-to-job comparison
+- Application tracking
+- Job deadline monitoring
+- Company research
+- Cover-letter generation
+- Skill-gap detection
+- Interview preparation
+- Multi-agent job-search orchestration
