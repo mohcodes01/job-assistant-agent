@@ -181,4 +181,3 @@ Individual source failures should not stop the entire job-search pipeline.
 - Cover-letter generation
 - Skill-gap detection
 - Interview preparation
-- Multi-agent job-search orchestration
