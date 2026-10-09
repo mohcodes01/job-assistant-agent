@@ -173,6 +173,18 @@ Explicit User Authorization
 
 ### 5. Security, Data Handling & Future Extensions
 
+```md
+## Security & Data Handling
+
+The Application Support Agent should:
+
+- Minimize exposure of personal information.
+- Only use information required for the application.
+- Never fabricate personal details.
+- Never expose private application data unnecessarily.
+- Keep user-provided information separate from job-source data.
+- Clearly distinguish generated content from user-provided content.
+- Require explicit authorization for external submission actions.
 
 ## Auditability
 
