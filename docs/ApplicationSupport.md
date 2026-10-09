@@ -210,14 +210,3 @@ The agent should retain enough context to explain:
 - Application analytics
 - Multi-agent application workflows
 
-## Success Criteria
-
-The Application Support Agent should produce applications that are:
-
-- Accurate
-- Relevant
-- Consistent
-- Explainable
-- User-controlled
-- Privacy-conscious
-- Ready for human review
