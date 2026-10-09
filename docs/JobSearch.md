@@ -179,3 +179,5 @@ Individual source failures should not stop the entire job-search pipeline.
 - Job deadline monitoring
 - Company research
 - Cover-letter generation
+- Skill-gap detection
+- Interview preparation
