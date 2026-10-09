@@ -13,20 +13,6 @@ It keeps application records organized, tracks status changes, stores important 
 
 Supported statuses may include:
 
-- Saved
-- Preparing
-- Applied
-- Application Viewed
-- Recruiter Contacted
-- Screening
-- Interview
-- Technical Interview
-- Final Interview
-- Offer
-- Accepted
-- Rejected
-- Withdrawn
-- Closed
 
 The status model should remain configurable so additional hiring stages can be introduced later.
 
