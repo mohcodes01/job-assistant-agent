@@ -197,16 +197,3 @@ The agent should retain enough context to explain:
 - Whether the application was submitted with authorization.
 
 ## Future Extensions
-
-- Automated application form assistance
-- Application status tracking
-- Application history
-- Resume version management
-- Cover letter generation
-- Company-specific application templates
-- Application deadline reminders
-- Follow-up email generation
-- Recruiter communication support
-- Application analytics
-- Multi-agent application workflows
-
